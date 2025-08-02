@@ -1,19 +1,17 @@
+@if(isAddingTask){
+<app-new-task (isToHideDialog)="onClose()" [userID]="userId" />
+}
+
 <section>
   <header>
     <h2>{{ userName }} 's task details is shown here</h2>
     <menu>
-      <button>Add task</button>
+      <button (click)="onStartAddTask()">Add task</button>
     </menu>
   </header>
   <ul>
-    <li>
-      <app-task />
-    </li>
-    <li>
-      <app-task />
-    </li>
-    <li>
-      <app-task />
-    </li>
+    @for (task of selectedUserTask; track task.id){
+    <li><app-task [task]="task" /></li>
+    }
   </ul>
 </section>

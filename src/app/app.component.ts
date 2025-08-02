@@ -25,4 +25,8 @@ export class AppComponent {
     console.log('User is clicked ' + id);
     this.selectedUserID = id;
   }
+
+  isUserSelected(selectedUserId: string): boolean {
+    return this.selectedUser?.id == selectedUserId;
+  }
 }
